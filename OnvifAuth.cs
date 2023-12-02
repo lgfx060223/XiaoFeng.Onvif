@@ -45,7 +45,7 @@ namespace XiaoFeng.Onvif
         {
             var data = nonce.FromBase64StringToBytes().Concat(createdString.GetBytes());
             var passByte = password.GetBytes();
-            if (passByte != null) data.Concat(passByte);
+            if (passByte != null) data=data.Concat(passByte);
 
             return new XiaoFeng.Cryptography.SHAEncryption()
                 .Encrypt(data.ToArray(), XiaoFeng.Cryptography.SHAType.SHA1).ToBase64String();
